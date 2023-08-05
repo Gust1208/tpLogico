@@ -8,6 +8,7 @@ comio(pumba, hormiga(tuNoEresLaReina)).
 comio(pumba, cucaracha(ginger,15,6)). 
 comio(pumba, cucaracha(erikElRojo,25,70)). 
 
+
 comio(timon, vaquitaSanAntonio(romualda,4)). 
 comio(timon, cucaracha(gimeno,12,8)). 
 comio(timon, cucaracha(cucurucha,12,5)). 
