@@ -34,3 +34,5 @@ jugosita(Cucaracha) :-
     findall(Cucaracha, comio(Animal, Cucaracha), Lista),
     cucaracha(Nombre,T1,P1), cuacaracha(Nombre,T2,_P2, T1=T2, P1\=P2).
     
+% B %
+hormigofilico(Quien) :- comio(Quien, hormiga(_)).
