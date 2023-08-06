@@ -20,12 +20,18 @@ comio(simba, hormiga(schwartzenegger)).
 comio(simba, hormiga(niato)). 
 comio(simba, hormiga(lula)). 
 
+comio(shenzi,hormiga(conCaraDeSimba)). 
+
 pesoHormiga(2). 
 
 %peso(Personaje, Peso) 
 peso(pumba, 100). 
 peso(timon, 50). 
 peso(simba, 200). 
+peso(scar, 300). 
+peso(shenzi, 400). 
+peso(banzai, 500). 
+
 
 
 % Punto 1%
@@ -44,3 +50,11 @@ cucarachofobico(Quien) :- not(comio(Quien,cucaracha(_,_,_))).
 picaron(Quien) :- comio(Quien,vaquitaSanAntonio(remeditos,_)).
 picaron(Quien) :- comio(Quien, Cucaracha), jugosita(Cucaracha).
 picarones(Lista) :- findall(Quien, picaron(Quien), Lista).
+
+% Punto 2 %
+persigue(scar, timon). 
+persigue(scar, pumba). 
+persigue(shenzi, simba). 
+persigue(shenzi, scar). 
+persigue(banzai, timon). 
+
