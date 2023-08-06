@@ -30,8 +30,8 @@ peso(simba, 200).
 % A %
 jugosita(Cucaracha) :- comio(Quien, Cucaracha),
                 findall(Cucaracha,comio(Quien, Cucaracha), Lista).
-cucaracha(_,T1,P1),cucarqacha(_,T2,P2), T1 = T2, P1 > P2.
-cucaracha(_,T1,P1),cucarqacha(_,T2,P2), T1 = T2, P1 < P2.  
+cucaracha(Nombre,T1,P1),cucarqacha(Nombre,T2,P2), T1 = T2, P1 > P2.
+cucaracha(Nombre,T1,P1),cucarqacha(Nombre,T2,P2), T1 = T2, P1 < P2.  
 % B %
 hormigofilico(Quien) :- comio(Quien, hormiga(_)).
 
