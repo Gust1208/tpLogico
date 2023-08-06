@@ -1,4 +1,6 @@
-% TP Logíco Grupo 3 %
+/*TP Logíco Grupo 3 
+  Matías Ezequiel Fernández Lucero 
+  Gustavo DG Gutiérrez */
 
 %comio(Personaje, Bicho) 
 
@@ -37,3 +39,8 @@ hormigofilico(Quien) :- comio(Quien, hormiga(_)).
 
 % C %
 cucarachofobico(Quien) :- not(comio(Quien,cucaracha(_,_,_))).
+
+% D %
+picaron(Quien) :- comio(Quien,vaquitaSanAntonio(remeditos,_)).
+picaron(Quien) :- comio(Quien, Cucaracha), jugosita(Cucaracha).
+picarones(Lista) :- findall(Quien, picaron(Quien), Lista).
