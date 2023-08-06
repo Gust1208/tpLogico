@@ -28,11 +28,16 @@ peso(simba, 200).
 
 % Punto 1%
 % A %
-
-jugosita(Cucaracha) :-
+/*jugosita(Cucaracha) :-
     comio(Animal, Cucaracha),
-    findall(Cucaracha, comio(Animal, Cucaracha), Lista),
+    findall(Cucaracha, comio(Animal, Cucaracha), Cucaracha),
     cucaracha(Nombre,T1,P1), cuacaracha(Nombre,T2,_P2, T1=T2, P1\=P2).
-    
+*/    
 % B %
 hormigofilico(Quien) :- comio(Quien, hormiga(_)).
+
+% C %
+cucarachofobico(Quien) :- not(comio(Quien, cucaracha(_,_,))).
+ 
+
+
