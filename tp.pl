@@ -58,3 +58,9 @@ persigue(shenzi, simba).
 persigue(shenzi, scar). 
 persigue(banzai, timon). 
 
+% A %
+cuantoEngorda(Personaje, Peso) :-  comio(Personaje, Bicho), cuantoPesa(Bicho, Peso).
+
+cuantoPesa(vaquitaSanAntonio(_,Peso), Peso).
+cuantoPesa(cucaracha(_,_,Peso), Peso).
+cuantoPesa(pesoHormiga(Peso), Peso).
