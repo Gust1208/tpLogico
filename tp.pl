@@ -69,6 +69,7 @@ cuantoPesa(pesoHormiga(Peso), Peso).
 
 % Punto 3 %
 
-bichosComio(Bichos) :- findall(Bicho, comio(Bersonaje, Bicho), Bichos).
-
+bichosComio(Bicho, Cantidad) :- comio(Personaje, Bicho),
+                        findall(Bicho, comio(Personaje, Bicho), Bichos).
+                        length(Bichos, Cantidad).
 
