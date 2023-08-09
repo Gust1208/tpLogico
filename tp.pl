@@ -73,3 +73,9 @@ bichosComio(Bicho, Cantidad) :- comio(Personaje, Bicho),
                         findall(Bicho, comio(Personaje, Bicho), Bichos).
                         length(Bichos, Cantidad).
 
+animalesPerseguidos(Animal, Cantidad) :- persigue(Personaje, Animal),
+                        findall(Animal, persigue(Personaje, Animal), Animales).
+                        length(Animales, Cantidad).
+
+
+
