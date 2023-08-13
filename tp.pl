@@ -44,7 +44,8 @@ cucaracha(Nombre,T1,P1),cucarqacha(Nombre,T2,P2), T1 = T2, P1 < P2.
 hormigofilico(Quien) :- comio(Quien, hormiga(_)).
 
 % C %
-cucarachofobico(Quien) :- not(comio(Quien,cucaracha(_,_,_))).
+cucarachofobico(Quien) :-personaje(Quien), not(comio(Quien,cucaracha(_,_,_))).
+personaje(Quien) :- comio(Quien, _).
 
 % D %
 picaron(Quien) :- comio(Quien,vaquitaSanAntonio(remeditos,_)).
@@ -76,6 +77,8 @@ bichosComio(Bicho, Cantidad) :- comio(Personaje, Bicho),
 animalesPerseguidos(Animal, Cantidad) :- persigue(Personaje, Animal),
                         findall(Animal, persigue(Personaje, Animal), Animales).
                         length(Animales, Cantidad).
+
+
 
 
 
