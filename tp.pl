@@ -44,6 +44,8 @@ cucaracha(Nombre,T1,P1),cucarqacha(Nombre,T2,P2), T1 = T2, P1 < P2.
 hormigofilico(Quien) :- comio(Quien, hormiga(_)).
 
 % C %
+/* Aca creo el predicado personaje(Quien) como generador para paoder hacer inversible al predicado not, admitiendo consultas
+individuales como existenciales */
 cucarachofobico(Quien) :-personaje(Quien), not(comio(Quien,cucaracha(_,_,_))).
 personaje(Quien) :- comio(Quien, _).
 
