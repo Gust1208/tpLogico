@@ -33,23 +33,24 @@ peso(banzai, 500).
 % A %
 
 % Inversibilidad %
-jugosita(Cucaracha) :-
-    comio(_, cucaracha(_, Tamanio, Peso)),
-    comio(_, Cucaracha),
-    Cucaracha = cucaracha(_, Tamanio, PesoCucaracha),
-    PesoCucaracha > Peso.
+jugosita(cucaracha(Nombre, Tamanio, Peso)):-
+  cucaracha(OtroNombre, Tamanio, OtroPeso),
+  Nombre \= OtroNombre,
+  Peso > OtroPeso.
 
 % B %
 % Inversibilidad %
-hormigofilico(Personaje) :-
+/* Aca creo el predicado Quien(Personaje) como generador para paoder hacer inversible al predicado findall, admitiendo consultas
+individuales como existenciales */
+hormigofilico(Personaje) :- quien(Personaje),
     findall(Personaje, (comio(Personaje, hormiga(A)), comio(Personaje, hormiga(B)), A \= B), Personajes),
     member(Personaje, Personajes).
 
 % C %
-% Inversibilidad %
-cucarachofobico(Personaje) :-
-    findall(Personaje, (comio(Personaje, _), not(comio(Personaje, cucaracha(_, _, _)))), Personajes),
-    member(Personaje, Personajes).
+/* Aca creo el predicado personaje(Quien) como generador para paoder hacer inversible al predicado not, admitiendo consultas
+individuales como existenciales */
+cucarachofobico(Quien) :-personaje(Quien), not(comio(Quien,cucaracha(_,_,_))).
+personaje(Quien) :- comio(Quien, _).
 
 
 % D %
@@ -104,16 +105,11 @@ cuantoEngorda(Personaje,PesoFinal):-
     PesoFinal is Peso1+Peso2. 
 
 % Punto 3 %
-% Inversibilidad %
-bichosComio(Bicho, Cantidad) :- comio(Personaje, Bicho),
-                        findall(Bicho, comio(Personaje, Bicho), Bichos),
-                        length(Bichos, Cantidad).
-
-% Inversibilidad %
-animalesPerseguidos(Animal, Cantidad) :- persigue(Personaje, Animal),
-                        findall(Animal, persigue(Personaje, Animal), Animales),
-                        length(Animales, Cantidad).
-
+% inversibilidad %
+combinaComidas(Personaje, ListaComidas):-
+  esPersonaje(Personaje),
+  findall(CosaQueCome, (comio(Personaje, CosaQueCome) ; persigue(Personaje, CosaQueCome)), ListaComidas).
+  member(CosaQueCome, ListaComidas).
 
 % Punto 4 %
 
